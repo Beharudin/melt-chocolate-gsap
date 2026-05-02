@@ -1,5 +1,7 @@
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./sections/Hero";
+import Parallax from "./sections/Parallax";
 import Quality from "./sections/Quality";
 import Taste from "./sections/Taste";
 import SmoothScroll from "./SmoothScroll";
@@ -12,8 +14,8 @@ const App = () => {
         <Hero />
         <Taste />
         <Quality />
-        {/* <Parallax /> */}
-        {/* <Footer /> */}
+        <Parallax />
+        <Footer />
       </SmoothScroll>
     </>
   );
