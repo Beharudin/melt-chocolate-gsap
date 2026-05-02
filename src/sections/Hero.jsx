@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import HeroChocolates from './HeroChocolates'
-import FlavorCards from './FlavorCards'
+import HeroChocolates from "./HeroChocolates";
+import FlavorCards from "./FlavorCards";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
-
   const [activeFlavor, setActiveFlavor] = useState(null);
 
   useGSAP(() => {
@@ -47,29 +46,37 @@ const Hero = () => {
         choco,
         {
           x: () => {
-            const c = choco.getBoundingClientRect();
-            const t = card.getBoundingClientRect();
-            return t.left + t.width / 2 - (c.left + c.width / 2);
+            const chocPos = choco.getBoundingClientRect();
+            const cardPos = card.getBoundingClientRect();
+            return (
+              cardPos.left +
+              cardPos.width / 2 -
+              (chocPos.left + chocPos.width / 2)
+            );
           },
           y: () => {
-            const c = choco.getBoundingClientRect();
-            const t = card.getBoundingClientRect();
-            return t.top + t.height / 2 - (c.top + c.height * 0.68);
+            const chocPos = choco.getBoundingClientRect();
+            const cardPos = card.getBoundingClientRect();
+            return (
+              cardPos.top +
+              cardPos.height / 2 -
+              (chocPos.top + chocPos.height * 0.68)
+            );
           },
           scale: 0.6,
           ease: "none",
         },
-        0
+        0,
       );
     });
   });
 
   return (
-    <section className='choco-section inner-container'>
+    <section className="choco-section inner-container">
       <HeroChocolates activeFlavor={activeFlavor} />
       <FlavorCards setActiveFlavor={setActiveFlavor} />
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
