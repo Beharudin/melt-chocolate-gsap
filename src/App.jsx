@@ -6,7 +6,7 @@ const App = () => {
     <>
       <SmoothScroll>
         <Header />
-        {/* <Hero /> */}
+        <Hero />
         {/* <Taste /> */}
         {/* <Quality /> */}
         {/* <Parallax /> */}
